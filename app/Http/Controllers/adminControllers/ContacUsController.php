@@ -36,6 +36,18 @@ class ContacUsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,
+        [
+            'fullnamesss' =>'required',
+            'add'=>'required',
+            'phone'=>'required',
+            'msg'=>'required|max:50'
+        ],[
+            'fullnamesss.required'=>"Full Name is required",
+            'add.required'=>"Address is required",
+            'phone.required'=>"Phone No is required",
+            'msg.required'=>"Message is required"
+        ]);
         $data=[
         'fullname'=>$request->input('fullnamesss'),
         'Address'=>$request->input('add'),
