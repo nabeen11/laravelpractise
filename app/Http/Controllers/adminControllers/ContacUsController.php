@@ -43,7 +43,7 @@ class ContacUsController extends Controller
         'Message'=>$request->input('msg'),
         ];
         contactus::create($data);
-return redirect ("/contactus");
+        return redirect ('/homepage')->with('successMsg','Successfully Inserted Data');
     }
 
     /**
